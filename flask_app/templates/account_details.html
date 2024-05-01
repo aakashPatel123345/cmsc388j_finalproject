@@ -1,0 +1,17 @@
+{% extends "header_nav_bar.html" %}
+{% block content %}
+<div>
+    <h1>
+        Welcome, {{ current_username }}! 
+    </h1>
+    <br>
+    <br>
+</div>
+
+
+
+<div>
+    {# TODO: Link to see all of the current user's reviews and favorites #}
+    <a href="{{ url_for('songs.user_detail', username=current_username) }}">See all of your reviews and favorites</a>
+</div>
+{% endblock %}

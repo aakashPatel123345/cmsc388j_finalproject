@@ -1,0 +1,512 @@
+.results-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+  
+.track-card {
+    width: 200px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+  
+.track-card:hover {
+    transform: scale(1.05);
+}
+  
+.track-link {
+    text-decoration: none;
+    color: inherit;
+}
+  
+.track-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+  
+.track-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+  
+.track-image:hover {
+    transform: scale(1.1);
+}
+  
+.track-info {
+    padding: 10px;
+    background-color: white;
+}
+  
+.track-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+  
+.track-artist, .track-release-date {
+    font-size: 14px;
+    color: #666;
+    display: block;
+}
+  
+.error-msg {
+    padding: 10px;
+    background-color: #ffc0cb; /* Light red */
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-container {
+    padding: 20px;
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto; /* Centering the container */
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-button {
+    display: block;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.form-button:hover {
+    background-color: #45a049;
+}
+
+.error {
+    color: #ff0000; /* Red color for errors */
+    margin-top: 5px;
+}
+
+.navbar {
+    background-color: #2c3e50; /* A dark shade for the navbar background */
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+.nav-link:hover, .logout-button:hover {
+    background-color: #34495e; /* Slightly lighter dark background on hover */
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-text {
+    display: block;
+    font-weight: bold;
+}
+
+.logout-button {
+    background-color: #e74c3c; /* A red background for the logout button */
+    color: #ffffff;
+    margin-left: 10px; /* Spacing between login and logout when both are displayed */
+}
+
+.logout-button:hover {
+    background-color: #c0392b; /* Darker shade on hover for the logout button */
+}
+
+.login-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-title {
+    color: #2c3e50; /* Dark blue for a bit of color */
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register-link {
+    color: #3490dc;
+    transition: color 0.3s ease-in-out;
+}
+.register-link:hover {
+    color: #1d68a7;
+}
+
+.login-form-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 360px; /* Ideal width for forms */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.form-input:focus {
+    border-color: #3490dc;
+    outline: none;
+}
+
+.login-submit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.login-submit:hover {
+    background-color: #43a047;
+}
+
+.login-error {
+    color: #e3342f;
+    background-color: #fee;
+    padding: 5px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+.registration-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.registration-title {
+    color: #2c3e50; /* Dark blue for a sophisticated look */
+}
+
+.registration-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-link {
+    color: #3490dc;
+    transition: color 0.3s ease-in-out;
+}
+.login-link:hover {
+    color: #1d68a7;
+}
+
+.registration-form-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.registration-form {
+    width: 100%;
+    max-width: 360px; /* Optimal width for forms */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.form-input:focus {
+    border-color: #3490dc;
+    outline: none;
+}
+
+.registration-submit {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.registration-submit:hover {
+    background-color: #43a047;
+}
+
+.error {
+    color: #e3342f;
+    background-color: #fee;
+    padding: 5px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+/* General body styling */
+body {
+    background-color: #f4f6f8; /* Soft grey background */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Error messages styling */
+.error-msg {
+    color: #ff0000;
+    background-color: #ffe5e5;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+/* Song detail card styling */
+.song-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin: 20px;
+}
+
+.song-info {
+    display: flex;
+    align-items: center;
+}
+
+.song-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.song-details {
+    flex-grow: 1;
+}
+
+.song-title {
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+/* Reviews section styling */
+.reviews {
+    margin-top: 20px;
+}
+
+.reviews-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.review-list {
+    list-style: none;
+    padding: 0;
+}
+
+.review-item {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.review-content {
+    margin: 5px;
+}
+
+.review-date {
+    font-size: 12px;
+    color: #666;
+}
+
+.review-author {
+    color: #3490dc;
+}
+
+.review-author:hover {
+    color: #1d68a7;
+}
+
+/* Review form styling */
+.review-form-container {
+    margin-top: 20px;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    border: 
+}
+
+/* General styling for errors */
+.alert-error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Styling for user profile section */
+.user-profile {
+    text-align: center;
+    padding: 20px;
+    background-color: #f3f4f6;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.username-title {
+    font-size: 28px;
+    color: #333;
+}
+
+.user-email {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Styling for the reviews section */
+.user-reviews {
+    padding: 20px;
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.reviews-header {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.review-card {
+    background-color: #f9fafb;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-left: 5px solid #4CAF50; /* A green accent line */
+    border-radius: 5px;
+}
+
+.review-song-title {
+    font-size: 20px;
+    color: #333;
+}
+
+.review-content {
+    font-size: 16px;
+    color: #666;
+}
+
+.review-date {
+    font-size: 14px;
+    color: #888;
+    margin-top: 10px;
+}
+
+/* Styling for the favorites section */
+.user-favorites {
+    padding: 20px;
+    margin: 20px;
+    background-color: #ffffff; /* Light background for differentiation */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.10); /* Slightly lighter shadow for a softer look */
+}
+
+.favorites-header {
+    font-size: 24px;
+    color: #2c3e50; /* A slightly different shade of dark blue for a fresh feel */
+    margin-bottom: 15px;
+}
+
+.favorite-card {
+    background-color: #e8f0fe; /* Light blue background for visual interest */
+    padding: 15px;
+    margin-bottom: 10px;
+    border-left: 5px solid #007BFF; /* Blue accent line for branding consistency */
+    border-radius: 5px;
+}
+
+.favorite-song-title {
+    font-size: 20px;
+    color: #333;
+}
+
+.favorite-artist {
+    font-size: 16px;
+    color: #666;
+}
+
+.favorite-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin-right: 20px;
+}

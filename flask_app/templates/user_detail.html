@@ -1,0 +1,37 @@
+{% extends "header_nav_bar.html" %}
+{% block content %}
+{% if error %}
+    <div class="alert-error">
+        {{ error }}
+    </div>
+{% endif %}
+
+<div class="user-profile">
+    <h1 class="username-title">{{ user.username }}</h1>
+</div>
+
+<div class="user-reviews">
+    <h2 class="reviews-header">Reviews</h2>
+    {% for review in reviews %}
+        <div class="review-card">
+            <h3 class="review-song-title">{{ review.song_title }}</h3>
+            <p class="review-content">{{ review.content }}</p>
+            <p class="review-date">{{ review.date }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="user-favorites">
+    <h2 class="favorites-header">Favorites</h2>
+    {% for favorite in favorites %}
+        <div class="favorite-card">
+            <a href="{{ url_for('songs.song_detail', song_id=favorite.id) }}">
+                <img class="favorite-image" alt="Cover image for {{ favorite.name }}" src="{{ favorite.image_url }}" />
+            <h3 class="favorite-song-title">{{ favorite.name }}</h3>
+            <p class="favorite-artist">{{ favorite.artists }}</p>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

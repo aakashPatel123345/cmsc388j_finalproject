@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block header %}
+<nav class="navbar">
+    <a href="{{ url_for('songs.index') }}" class="nav-link">
+        <span class="nav-text">Spotify Song Searcher</span>
+    </a>
+    <div class="nav-links">
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('users.account') }}" class="nav-link">Account</a>
+            <a href="{{ url_for('users.logout') }}" class="nav-link logout-button">Logout</a>
+        {% else %}
+            <a href="{{ url_for('users.login') }}" class="nav-link">Login</a>
+            <a href="{{ url_for('users.register') }}" class="nav-link">Register</a>
+        {% endif %}
+    </div>
+</nav>
+
+{% block content %}{% endblock %} {% endblock %}

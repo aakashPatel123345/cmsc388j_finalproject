@@ -1,0 +1,22 @@
+{% extends "header_nav_bar.html" %} 
+
+{% block content %}
+<div class="main-container">
+  <div class="decoration-main-container"><div class="decoration-main"></div></div>
+  <h2> Spotify Song Searcher </h2>
+  <form action="/" method="POST">
+    {{ form.csrf_token }}
+    {{ form.search_query(class="form-control", placeholder="name of song") }}
+
+    {% if form.search_query.errors %}
+      <div class="error" role="alert">
+        {% for error in form.search_query.errors %}
+          <span>{{ error }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+    
+    {{ form.submit(class="form-button") }}
+  </form>
+</div>
+{% endblock %}

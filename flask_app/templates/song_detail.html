@@ -1,0 +1,71 @@
+{% extends "header_nav_bar.html" %}
+{% block content %}
+
+{% if error_msg %}
+  <div class="error-msg">
+    {{ error_msg }}
+  </div>
+{% endif %}
+
+{% if song %}
+<div class="song-card">
+  <div class="song-info">
+    <img class="song-image" alt="Cover image for {{ song.song_name }}" src="{{ song.image_url }}" />
+    <div class="song-details">
+      <h3 class="song-title"> {{ song.song_name }} </h3>
+      <ul>
+        <li><b>Artists:</b> {{ song.artists }}</li>
+        <li><b>Album Name:</b> {{ song.album_name }}</li>
+        <li><b>Release Date:</b> {{ song.release_date }}</li>
+        {# Here we will include the 30 second preview of the song #}
+        <li><b>Preview:</b> <audio controls><source src="{{ song.preview_url }}" type="audio/mpeg"></audio></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="reviews">
+    <h2 class="reviews-title">Reviews <small class="reviews-count">({{ reviews | length }})</small></h2>
+    <ul class="review-list">
+      {% for review in reviews %}
+        <li class="review-item">
+          <div class="review-content">
+            <span class="review-date">{{ review.date }}</span>
+            <a class="review-author" href="{{ url_for('songs.user_detail', username=review.commenter.username) }}">
+              {{ review.commenter.username }}
+            </a>
+            <p>{{ review.content }}</p>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% if current_user.is_authenticated %}
+    <div class="review-form-container">
+      <form method="POST" action="" class="review-form">
+        {{ reviewForm.csrf_token }}
+        <div class="form-group">
+          {{ reviewForm.content.label }} {{ reviewForm.content(class="form-input") }}
+          {% if reviewForm.content.errors %}
+            <div class="error" role="alert">
+              {% for error in reviewForm.content.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+        {{ reviewForm.submit(class="review-submit-button") }}
+      </form>
+    </div>
+
+
+    <div>
+      <form method="POST" action="" class="favorites-form">
+        {{ saveToFavoritesForm.csrf_token }}
+        {{ saveToFavoritesForm.submit(class="favorite-button") }}
+      </form>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,59 @@
+{% extends "header_nav_bar.html" %}
+{% block content %}
+<div class="registration-container">
+    <h2 class="registration-title">Registration</h2>
+</div>
+<div class="registration-link">
+    If you already have an account, <a href="{{ url_for('users.login') }}" class="login-link">login here</a>.
+</div>
+<div class="registration-form-container">
+    <form class="registration-form" method="POST" action="">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            {{ form.username.label(class="form-label") }}
+            {{ form.username(class="form-input") }}
+            {% if form.username.errors %}
+            <div class="error" role="alert">
+                {% for error in form.username.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-input") }}
+            {% if form.email.errors %}
+            <div class="error" role="alert">
+                {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.password.label(class="form-label") }}
+            {{ form.password(class="form-input") }}
+            {% if form.password.errors %}
+            <div class="error" role="alert">
+                {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.confirm_password.label(class="form-label") }}
+            {{ form.confirm_password(class="form-input") }}
+            {% if form.confirm_password.errors %}
+            <div class="error" role="alert">
+                {% for error in form.confirm_password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {{ form.submit(class="registration-submit") }}
+    </form>
+</div>
+{% endblock %}

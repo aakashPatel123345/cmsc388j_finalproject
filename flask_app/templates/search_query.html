@@ -1,0 +1,26 @@
+{% extends "header_nav_bar.html" %} {% block content %}
+
+{% if error_msg %}
+  <div class="error-msg text-red-400">
+    {{ error_msg }}
+  </div>
+{% endif %}
+
+<div class="results-container">
+  {% for result in results %}
+    <div class="track-card">
+      <a href="{{ url_for('songs.song_detail', song_id=result.id) }}" class="track-link">
+        <div class="track-image-container">
+          <img alt="Album cover for {{ result.name }}" src="{{ result.image_url }}" class="track-image"/>
+        </div>
+        <div class="track-info">
+          <h5 class="track-title">{{ result.name }}</h5>
+          <span class="track-artist">{{ result.artists[0][name] }}</span>
+          <span class="track-release-date">{{ result.release_date }}</span>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
